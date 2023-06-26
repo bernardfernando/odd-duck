@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: monospace;
+    background-color: mintcream;
+    margin: 1rem;
+    color: darkgray;
+}
+
+audio, video, img {
+    margin: 2rem;
+}
