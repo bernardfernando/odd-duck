@@ -12,3 +12,26 @@ body {
 audio, video, img {
     margin: 2rem;
 }
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+
+}
+
+.grid {
+display: grid;
+grid-template-columns: 3fr 1fr 3fr;
+width: 1024px;
+margin: 3rem auto;
+}
+
+section.no-voting img:hover{
+border:5px sold transparent;
+cursor: not-allowed;
+/* pointer-events: none; */
+}
+section + div.clicks-allowed:hover {
+
+    background-color: blue;
+}
