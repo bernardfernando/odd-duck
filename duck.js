@@ -6,13 +6,14 @@ console.log("check  if goat goat works");
 
 const duckProductContainer = document.querySelector("section");
 //console.log(duckProductContainer);
-const image1 = document.querySelector("section img");
+const image1 = document.querySelector("section img:nth-child(1)");
 console.log(image1);
-const image2 = document.querySelector("section img:first-child");
+const image2 = document.querySelector("section img:nth-child(2)");
 console.log(image2);
-const image3 = document.querySelector("section img:nth-child(2)");
+const image3 = document.querySelector("section img:nth-child(3)");
 console.log(image3);
-const resultButton = document.querySelector("section + div")
+const resultsButton = document.querySelector("section")
+console.log(resultsButton);
 
 let clicks = 0;
 const maxClicksAllowed = 5;
@@ -43,17 +44,23 @@ function DuckProduct(productName, src){
 
     // ensure 3 different products are shown at a time
 
-    while(product1 === product2 || product2===product3 || product1 === product3) {
+    while(product1 === product2 || product2 === product3 || product1 === product3) {
         product2 = getRandomNumber();
         product3 = getRandomNumber();
+        console.log(product1);
+        console.log(product2);
+        console.log(product3);
+
    }
     //    while(product1 === product3 || product2 === product3){
     //     product3 = getRandomNumber();
     // }
 
  // use these random numbers set the attributes of the 3 images in the document
-
+ console.log(image1);
+ 
     image1.src = allDuckProducts[product1].src;
+   
     image2.src = allDuckProducts[product2].src;
     image3.src = allDuckProducts[product3].src;
     image1.alt = allDuckProducts[product1].productName;
@@ -75,7 +82,7 @@ function handleDuckProductClick(event) {
             clicks++;
             let clickedDuckProduct = event.target.alt;
             for(let i = 0; i < allDuckProducts.length; i++) {
-                if(clickedDuckProduct === allDuckProduct[i].name) {
+                if(clickedDuckProduct === allDuckProducts[i].name) {
                 allDuckProducts[i].clicks++;
                 break;
                 }
@@ -136,3 +143,6 @@ for (let i = 0; i < newDuckRange.length; i++) {
 renderDuckProducts();
 
 duckProductContainer.addEventListener("click", handleDuckProductClick);
+
+
+// chart day
