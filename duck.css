@@ -4,9 +4,8 @@
 
 body{
     font-family: monospace;
-    background-color: cornsilk;
-    color: antiquewhite;
-
+    background-color: lightcoral;
+    padding: 2rem;
 }
 
 main {
@@ -15,9 +14,41 @@ main {
     grid-template-columns: 250px 4fr;
     grid-template-rows: 6.5rem 10rem 20rem 40%;
 }
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1rem;
+    color: blue;
+    }
+h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: lightsalmon;
+} 
+
+.grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    width: 1024px;
+    margin:  3rem auto;
+}
+ button {
+        margin: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: turquoise;
+        color: moccasin;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
 
 #siteLogo {
     width: 250px;
     z-index:2;
 
+}
+img {
+    width: 300px;
+    height:300px;
 }
