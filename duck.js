@@ -5,15 +5,13 @@ console.log("check  if goat goat works");
 
 
 const duckProductContainer = document.querySelector("section");
-//console.log(duckProductContainer);
 const image1 = document.querySelector("section img:nth-child(1)");
-console.log(image1);
 const image2 = document.querySelector("section img:nth-child(2)");
-console.log(image2);
 const image3 = document.querySelector("section img:nth-child(3)");
-console.log(image3);
-const resultsButton = document.querySelector("section")
-console.log(resultsButton);
+const resultsButton = document.querySelector("#butt1");
+const chartButton = document.querySelector("#butt2");
+
+
 
 let clicks = 0;
 const maxClicksAllowed = 5;
@@ -52,20 +50,17 @@ function DuckProduct(productName, src){
         console.log(product3);
 
    }
-    //    while(product1 === product3 || product2 === product3){
-    //     product3 = getRandomNumber();
-    // }
+    
 
  // use these random numbers set the attributes of the 3 images in the document
- console.log(image1);
  
     image1.src = allDuckProducts[product1].src;
-   
     image2.src = allDuckProducts[product2].src;
     image3.src = allDuckProducts[product3].src;
     image1.alt = allDuckProducts[product1].productName;
     image2.alt = allDuckProducts[product2].productName;
     image3.alt = allDuckProducts[product3].productName;
+
 
     allDuckProducts[product1].views++;
     allDuckProducts[product2].views++;
@@ -74,9 +69,20 @@ function DuckProduct(productName, src){
 }
 
 // counting clicks
+function renderResults () {
+    //console.log("your results are in heree")
+
+    let ul = document.querySelector("ul");
+    for (let i = 0; i < allDuckProducts.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = `${allDuckProducts[i].productName} had ${allDuckProducts[i].views} views and was clicket ${allDuckProducts[i].clicks} times`;
+        ul.appendChild(li);
+    }
+}
+
 
 function handleDuckProductClick(event) {
-        if (event.target === duckProductContainer) {
+        if (event.target === duckProductContainer || !event.target.alt ) {
             alert("Please click on an image");
         } else {
             clicks++;
@@ -90,8 +96,10 @@ function handleDuckProductClick(event) {
             if (clicks === maxClicksAllowed) {
                 duckProductContainer.removeEventListener("click", handleDuckProductClick);
                 duckProductContainer.className = "no Voting";
-                resultsButton.addEventListner("click", renderResults);
-                resultsButton.className = "clciks-allowed";
+                resultsButton.addEventListener("click", renderResults);
+                chartButton.addEventListener("click", renderChart);
+                resultsButton.className = "clicks-allowed";
+
             } else {
                 renderDuckProducts();
 
@@ -99,16 +107,7 @@ function handleDuckProductClick(event) {
     }
 }
 
-function renderResults () {
-    //console.log("your results are in heree")
 
-    let ul = document.querySelector("ul");
-    for (let i = 0; i < allDuckProducts.length; i++) {
-        let li = document.createElement("li");
-        li.textContent = `${allDuckProducts[i].name} had ${allDuckProducts[i].views} views and was clicket ${allDuckProducts[i].clicks} times`;
-        ul.appendChild(li);
-    }
-}
 
 const newDuckRange = [
     "bag",
@@ -145,4 +144,53 @@ renderDuckProducts();
 duckProductContainer.addEventListener("click", handleDuckProductClick);
 
 
-// chart day
+// chart day 27 June 2023
+
+function renderChart () {
+        const productNames = [];
+        const productViews = [];
+        const productClicks = [];
+
+        for (let i = 0; i<allDuckProducts.length; i++){
+            productNames.push(allDuckProducts[i].productName);
+            productViews.push(allDuckProducts[i].views); 
+            productClicks.push(allDuckProducts[i].clicks);
+        }
+    console.log(productNames);
+    console.log(productViews);
+    console.log(productClicks);
+
+
+    const data = {
+        labels:productNames,
+        datasets: [
+            {
+                label:"clicks",
+                data: productClicks,
+                backgroundColor: ["#f7f7f7"],
+                borderColor: ["#074e67"],
+                borderWidth:1
+            },
+            
+            {
+                label:productViews,
+                data:productViews,
+                backgroundColor: ["#D36B00"],
+                borderColor: ["#42032C"],
+                borderWidth: 1,
+            }
+
+        ]
+    };
+
+    const config = {
+        type: "bar",
+        data: data,
+    };
+
+    const productSurveyChart = document.getElementById("myChart");
+    const productChart = new Chart(productSurveyChart, config);
+
+}
+
+
