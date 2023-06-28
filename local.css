@@ -1,0 +1,51 @@
+body {
+
+background-color: white;
+
+}
+
+h1{
+    text-align: center;
+    color: black;
+
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    background-color: inherit;
+    padding: 1rem;
+    margin: auto;
+    width: 15rem;
+}
+
+label {
+    display: flex;
+    font-display: row;
+}
+
+article {
+    width: 100%;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    margin: auto;
+}
+summary {
+    padding: 1rem;
+}
+
+.dark {
+    color: white;
+    background-color: #559;
+}
+
+.light {
+    color: black;
+    background-color: white;
+}

@@ -45,11 +45,7 @@ function DuckProduct(productName, src){
     while(product1 === product2 || product2 === product3 || product1 === product3) {
         product2 = getRandomNumber();
         product3 = getRandomNumber();
-        console.log(product1);
-        console.log(product2);
-        console.log(product3);
-
-   }
+     }
     
 
  // use these random numbers set the attributes of the 3 images in the document
@@ -84,11 +80,13 @@ function renderResults () {
 function handleDuckProductClick(event) {
         if (event.target === duckProductContainer || !event.target.alt ) {
             alert("Please click on an image");
+
         } else {
             clicks++;
             let clickedDuckProduct = event.target.alt;
+            
             for(let i = 0; i < allDuckProducts.length; i++) {
-                if(clickedDuckProduct === allDuckProducts[i].name) {
+                if(clickedDuckProduct === allDuckProducts[i].productName) {
                 allDuckProducts[i].clicks++;
                 break;
                 }
@@ -174,7 +172,7 @@ function renderChart () {
             
             {
                 label:productViews,
-                data:productViews,
+                data:productViews,  // changed from productViews
                 backgroundColor: ["#D36B00"],
                 borderColor: ["#42032C"],
                 borderWidth: 1,
@@ -190,6 +188,8 @@ function renderChart () {
 
     const productSurveyChart = document.getElementById("myChart");
     const productChart = new Chart(productSurveyChart, config);
+////lical storage function invoking goes here
+
 
 }
 
