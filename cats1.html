@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Stuff</title>
+    <meta name="description" contents = "Cat listing">
+   
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="cats.css">
+</head>
+<body id="one">
+    <h1>This is page 1</h1>
+    <p><a href="cat2.html">Got to page 2</a></p>
+    <p>Form below makes a cat. after submitting list will appear below</p>
+    <p>make a few cats and go to page 2 and you will see the cats in page 2 as a list</p>
+    <form id = "catForm">
+        <fieldset>
+            <legend>this is the Cat form</legend>
+            <label>
+                <input type="text" name="kitteh"  required />
+            </label>
+            <button type = "submit">Submit your new cat</button>
+            
+            <button type="submit">Cat Submit</button>
+        </fieldset>
+    </form>
+    <h2>The Cat list</h2>
+    <ul id = "catList"></ul>
+    <script src ="cats1.js"></script>
+    <script src ="cats2.js"></script>
+
+</body>
+</html>
