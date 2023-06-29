@@ -209,7 +209,7 @@ function checkLocalStorage() {
     if (localDuckProDuct) {
         allDuckProduct = localDuckProDuct;
     } else {
-        or (let i = 0; i < newDuckRange.length; i++) {
+        for (let i = 0; i < newDuckRange.length; i++) {
             //console.log(`assets/images/`+ newDuckRange[i] +`.jpg`);
                new DuckProduct(newDuckRange[i], `assets/images/`+ newDuckRange[i] +`.jpg`);
             
