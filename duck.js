@@ -10,6 +10,7 @@ const image2 = document.querySelector("section img:nth-child(2)");
 const image3 = document.querySelector("section img:nth-child(3)");
 const resultsButton = document.querySelector("#butt1");
 const chartButton = document.querySelector("#butt2");
+const chartButton2 = document.querySelector("butt3");
 
 
 
@@ -96,6 +97,7 @@ function handleDuckProductClick(event) {
                 duckProductContainer.className = "no Voting";
                 resultsButton.addEventListener("click", renderResults);
                 chartButton.addEventListener("click", renderChart);
+                chartButton2.addEventListener("click",renderChart2);
                 resultsButton.className = "clicks-allowed";
 
             } else {
@@ -158,6 +160,8 @@ function renderChart () {
     console.log(productViews);
     console.log(productClicks);
 
+// use function now
+
 
     const data = {
         labels:productNames,
@@ -183,14 +187,83 @@ function renderChart () {
 
     const config = {
         type: "bar",
-        data: data,
+        data: data
     };
 
     const productSurveyChart = document.getElementById("myChart");
     const productChart = new Chart(productSurveyChart, config);
+
 ////lical storage function invoking goes here
+setLocalStorage();
 
+};
 
+function setLocalStorage() {
+
+    localStorage.setItem("duck-pro-duct", JSON.stringify(allDuckProducts))
 }
 
+function checkLocalStorage() {
+    const localDuckProDuct = JSON.parse(localStorage.getItem("duck-pro-duct"))
+    console.log(localDuckProDuct);
+    if (localDuckProDuct) {
+        allDuckProduct = localDuckProDuct;
+    } else {
+        or (let i = 0; i < newDuckRange.length; i++) {
+            //console.log(`assets/images/`+ newDuckRange[i] +`.jpg`);
+               new DuckProduct(newDuckRange[i], `assets/images/`+ newDuckRange[i] +`.jpg`);
+            
+            }
+    }
+}
 
+checkLocalStorage ()
+renderduckProducts()
+
+
+
+/*
+function renderChart2() {
+
+    const productNames2 = [];
+    const productClicks2 = [];
+    const productViews2 = [];
+
+    for (let k=0; k<allDuckProducts.length; k++) {
+        productNames2.push(allDuckProducts[k].productName);
+        productClicks2.push(allDuckProducts[k].clicks)
+        productViews2.push(allDuckProducts[k].views);
+    }
+
+    const data2 = {
+        label: productNames2,
+        datasets: [
+            {
+            label:"Clicks",
+            data:productClicks2,
+            backgroundColor: ["#f7f7f7"],
+            borderColor: ["#074e67"],
+            borderWidth:1
+            },
+            {
+            label: "Views",
+            data: productViews2,
+            backgroundColor: ["#D36B00"],
+            borderColor: ["#42032C"],
+            borderWidth: 1,
+
+            }
+        ]
+    };
+
+
+    const config2 = {
+        type:"pie",
+        data: data2
+    };
+
+
+    const newChart = document.getElementById("myChart2");
+    const productChart2 = new Chart(newChart, config2)
+
+};*/

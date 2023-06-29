@@ -2,28 +2,29 @@
 console.log("dont cry for me Argentina");
 
 let darkMode = false;
+let lightMode = false;
 
 document.getElementById("darkButton").addEventListener("click",enterDarkMode);
 document.getElementById("lightButton").addEventListener("click",enterLightMode);
 
-function darkMode () {
+function enterDarkMode () {
     let body = document.body;
     let welcome = document.getElementById("welcome");
     let button = document.getElementById("darkButton");
     body.classList.remove("light");
     welcome.classList.remove("light");
     body.classList.add("dark");
-    body.classList.add("dark")
+    welcome.classList.add("dark")
     button.setAttribute("checked","checked");
-    dearMode = true;
+    darkMode = true;
     saveMode();
 }
 
-function lightMode () {
+function enterLightMode () {
     let body = document.body;
     let welcome = document.getElementById("welcome");
     let button = document.getElementById("lightButton");
-    body.classList.remove("deark");
+    body.classList.remove("dark");
     welcome.classList.remove("dark");
     body.classList.add("light");
     welcome.classList.add("light");
@@ -40,8 +41,7 @@ function saveMode () {
 function pageLoad () {
     let storeMode = JSON.parse(localStorage.getItem("darkMode"))
 
-
-if(storeMode === null) {
+if(storedMode === null) {
     console.log("null");
     return;   
 } else if (storeMode === "false") {

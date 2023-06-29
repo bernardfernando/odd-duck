@@ -58,10 +58,10 @@ img {
 
 canvas {
     width: 75%;
-    height: 500px;
+    height: 1000px;
 }
 
-#butt1, #butt2 {
+#butt1, #butt2, #butt3 {
     display: flex;
     align-content: flex-start;
 }
