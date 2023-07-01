@@ -90,10 +90,11 @@ function handleDuckProductClick(event) {
     if (clicks === maxClicksAllowed) {
       duckProductContainer.removeEventListener("click", handleDuckProductClick);
       duckProductContainer.className = "no Voting";
-      resultsButton.addEventListener("click", renderResults);
-      chartButton.addEventListener("click", renderChart);
+      //   resultsButton.addEventListener("click", renderResults);
+      //   chartButton.addEventListener("click", renderChart);
       /*chartButton2.addEventListener("click", renderChart2);*/
-      resultsButton.className = "clicks-allowed";
+      // resultsButton.className = "clicks-allowed";
+      setLocalStorage();
     } else {
       renderDuckProducts();
     }
@@ -129,8 +130,15 @@ const newDuckRange = [
    new DuckProduct(newDuckRange[i], `assets/images/`+ newDuckRange[i] +`.jpg`);
 
 } */
-
-duckProductContainer.addEventListener("click", handleDuckProductClick);
+if (location.href.includes("duck")) {
+  console.log("in index page");
+  duckProductContainer.addEventListener("click", handleDuckProductClick);
+} else if (location.href.includes("boss")) {
+  console.log("in bosses page");
+  resultsButton.addEventListener("click", renderResults);
+  chartButton.addEventListener("click", renderChart);
+}
+/*duckProductContainer.addEventListener("click", handleDuckProductClick); */
 
 // chart day 27 June 2023
 
@@ -180,7 +188,7 @@ function renderChart() {
   const productChart = new Chart(productSurveyChart, config);
 
   ////lical storage function invoking goes here
-  setLocalStorage();
+  /* setLocalStorage(); */
 }
 
 function setLocalStorage() {
@@ -201,6 +209,7 @@ function checkLocalStorage() {
       );
     }
   }
+  console.log(location.href);
 }
 
 checkLocalStorage();

@@ -1,62 +1,68 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 body {
-    font-family: monospace;
-    background-color: mintcream;
-    margin: 1rem;
-    color: darkgray;
+  font-family: monospace;
+  background-color: mintcream;
+  margin: 1rem;
+  color: darkgray;
 }
 
 h1 {
-
-    font-size: 3rem;
-    color: darkorange;
+  font-size: 3rem;
+  color: darkorange;
 }
 
-audio, video, img {
-    margin: 2rem;
+audio,
+video,
+img {
+  margin: 2rem;
 }
 
 button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .grid {
-display: grid;
-grid-template-rows: 1fr 1fr 1fr 1fr ;
-width: 1024px;
-margin: 2% auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 1024px;
+  margin: 2% auto;
 }
 
-section.no-voting img:hover{
-border:5px sold transparent;
-cursor: not-allowed;
-/* pointer-events: none; */
+.grid2 {
+  display: grid;
+  grid-template-rows: 2fr 2fr;
+  width: 1024px;
+  margin: 2% auto;
+}
+
+section.no-voting img:hover {
+  border: 5px sold transparent;
+  cursor: not-allowed;
+  /* pointer-events: none; */
 }
 section + div.clicks-allowed:hover {
-
-    background-color: blue;
+  background-color: blue;
 }
 
 canvas {
-    width: 75%;
-    height: 500px;
+  width: 90%;
+  height: 500px;
 }
 
-nav, a {
-    text-decoration: none;
-    font-size: 2rem;
+nav,
+a {
+  text-decoration: none;
+  font-size: 2rem;
 }
 
-a:hover{
-background-color: darkgoldenrod;
+a:hover {
+  background-color: darkgoldenrod;
 }
 
 img {
-
-    width: 400px;
+  width: 400px;
 }

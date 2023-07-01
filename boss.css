@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: monospace;
+  background-color: lightcoral;
+  padding: 2rem;
+}
+
+main {
+  width: 1024;
+  margin: 3rem auto;
+  grid-template-columns: 250px 4fr;
+  grid-template-rows: 6.5rem 10rem 20rem 40%;
+}
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 1rem;
+  color: blue;
+}
+h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: lightsalmon;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  width: 960px;
+  margin: 3rem auto;
+  border: 5px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 430px);
+  width: 960px;
+  margin: 3rem auto;
+  border: 5px;
+}
+button {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: turquoise;
+  color: moccasin;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#siteLogo {
+  width: 250px;
+  z-index: 2;
+}
+img {
+  width: 250px;
+  height: 250px;
+}
+
+canvas {
+  width: 90%;
+  height: 1000px;
+}
+
+#butt1,
+#butt2 {
+  display: flex;
+  align-content: flex-start;
+}
+
+#myChart {
+  width: 500px;
+  height: 300px;
+}
